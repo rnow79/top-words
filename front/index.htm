@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Top Words Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="title"><h1>Top Words Demo</h1></div>
+
+        <div id="description">
+            Welcome to <stong>Wop Words Demo</stong>! Here you can test our counting demo backend. Just type your text in 
+            the left panel, select your options, and click on "Let's count!" button. Enjoy!
+        </div>        
+        <div id="panels">
+        <div id="panel1"><textarea id="inputText">Paste here your text...</textarea></div>
+        <div id="panel2"><textarea id="outputText" readonly></textarea></div>
+        <div id="inputPanel">input</div>
+        <div id="outputPanel">output</div>
+    </div> 
+    <div id="options">Results: <input id="maxResults" type="text" value="10" size="2"> Ignore Case: <input id="ignoreCase" type="checkbox"></div>
+    <div id="count" class="round shadow">Let's count!</div>
+    <div id="error"></div>
+    <script lang="javascript">
+        $(document).ready(() => {
+            $("#inputText").focus(() => {
+                $("#inputText").select();
+            });
+        });
+        var errMsg = "";
+        showError = (msg) => {
+            if (msg.length === 0) return;
+            errMsg = msg;
+            $("#error").fadeOut("fast", function() {$(this).html("ERROR: " + errMsg).fadeIn("slow")});
+        }
+        $("#count").click(e => {
+            var textToSend = $("#inputText").val();
+            if (textToSend.length === 0) {
+                showError("Please enter some text!");
+                $("#inputText").focus();
+                return;
+            }
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://localhost/top",
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "data": {
+                    "n": $("#maxResults").val(),
+                    "text": textToSend,
+                    "ignorecase": $("#ignoreCase")[0].checked ? '1' : '0'
+                }                
+            };
+            console.log(settings);
+            $.ajax(settings).done(response => {
+                $("#error").html("");
+                $("#outputText").val(JSON.stringify(response, null, 1));
+            }).fail((a,b,c) => {
+                console.log(a);
+                showError(a.responseText);
+            });
+        });
+    </script>
+</body>
+</html>

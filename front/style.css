@@ -1,0 +1,119 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #626262;
+    color: white;
+    margin: 0px;
+}
+input {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#title {
+    background-color: #4e4e4e;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;;
+}
+div#description {
+    align-content: center;
+    width: 23%;
+    text-align: center;
+    margin: 13px auto 13px auto;
+}
+div#panels {
+    width: 90%;
+    height: 50%;
+    background-color: #c7c7c7;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    padding: 13px;
+    color: #343434;
+    position: relative;
+}
+div#panel1 {
+    display: inline;
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+div#panel2 {
+    display: inline;
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+div#count {
+    margin-top: 17px;
+    background-color: #9ddda5;
+    height: 100px;
+    width: 200px;
+    margin: 17px auto 0 auto;
+    text-align: center;
+    font-size: 27px;
+    line-height: 100px;
+    color: black;
+}
+div#count:hover {
+    color: whitesmoke;
+    background-color: #335036;
+    cursor: hand;
+    cursor: pointer;
+}
+div#inputPanel {
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    pointer-events: none;
+    font-size: 123px;
+    font-weight: bold;
+    padding: 13px;
+    opacity: 0.17;
+}
+div#outputPanel {
+    position: absolute;
+    bottom: 3px;
+    right: 11px;
+    pointer-events: none;
+    font-size: 123px;
+    font-weight: bold;
+    padding: 13px;
+    opacity: 0.17;
+}
+div#options {
+    text-align: center;
+    margin-top: 17px;
+}
+div#error {
+    color: rgb(255, 157, 157);
+    margin-top: 13px;
+    font-size: 21px;
+    text-align: center;
+}
+input {
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+textarea {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: whitesmoke;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+textarea#outputText {
+    border-left: 3px double #c7c7c7;
+}
+.round {
+    border-radius: 11px;
+}
+.shadow {
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+}
