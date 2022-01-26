@@ -1,7 +1,7 @@
 # Top Words Demo
 Welcome to "Top Words" project. This project has two parts:
 - A service that accepts input as text, n as int, and provides a json with the n top used words, and times of occurence.
-- A tiny frontend for testing the service.
+- A tiny frontend for service testing.
 
 ## Endpoints
 
